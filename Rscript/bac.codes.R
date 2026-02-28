@@ -122,13 +122,13 @@ names(pcoa_by_data.rhizo)[1:2]<-c('PCoA1','PCoA2')
 pcoa_by_data.rhizo$group = group.rhizo $group
 #view(pcoa_by_data.rhizo) #to check
 adonis2(formula = rhizo ~ group, data = group.rhizo, permutations = 999,method = "bray")
-pcoa_rhizo<-ggplot(pcoa_by_data,aes(PCoA1, PCoA2,color = group))+stat_ellipse(level = 0.8, show.legend = F) + 
-  theme_bw() + labs(title = "Microbiome beta diveristy", subtitle = "R2 = 0.20, P=0.044*")+
+pcoa_rhizo<-ggplot(pcoa_by_data.rhizo,aes(PCoA1, PCoA2,color = group))+stat_ellipse(level = 0.8, show.legend = F) + 
+  theme_bw() + labs(title = "Microbiome beta diveristy", subtitle = "R2 = 0.198, P=0.045*")+
   geom_point(aes(color = group, shape = group), size =4, alpha = 0.8) + #可在这里修改点的透明度、大小
   scale_shape_manual(values = c(17,17)) +
   scale_color_manual(values = c("#ffc97b", "#167eb2")) + 
   theme(panel.grid = element_blank(), panel.background = element_rect(color = 'black', fill = 'transparent')) +
-  labs(x = paste('PCoA1:', round(100*pcoa_by_eig[1],2),'%'),y=paste('PCoA2:',round(100*pcoa_by_eig[2],2),'%'))
+  labs(x = paste('PCoA1:', round(100*pcoa_by_eig.rhizo[1],2),'%'),y=paste('PCoA2:',round(100*pcoa_by_eig.rhizo[2],2),'%'))
 pcoa_rhizo
-ggsave(plot = pcoa, filename = "Figure/b_pcoa_rhizo.pdf",  width = 106, height = 94, units = "mm", dpi = 300)
+ggsave(plot = pcoa_rhizo, filename = "Figure/b_pcoa_rhizo.pdf",  width = 106, height = 94, units = "mm", dpi = 300)
 #write.csv(pcoa_by_data,file = "pcoa_bac_bray_rhizo.csv",quote = F)
