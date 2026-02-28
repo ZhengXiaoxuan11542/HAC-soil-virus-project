@@ -1,5 +1,6 @@
 # HAC-feedback-project-2026
-**Srcipt of 'Soil bacterial phages drive volatile-mediated plant–soil feedbacks' in Hu lab**    
+
+**Srcipts of 'Soil bacterial phages drive volatile-mediated plant–soil feedbacks' in Hu lab**    
 
 Data Analysis Scripts for Microbial Diversity and Correlation
 
@@ -15,3 +16,8 @@ corr.heatmap.R: Script for generating correlation heatmaps
 **Figures**    
 Figures generated from the data using the provided scripts
 
+
+DOI：  
+NCBI SRA:    
+Dereplicated vOTU database:   
+All data used for figure visualization: Figshare...
