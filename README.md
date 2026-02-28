@@ -17,8 +17,8 @@ corr.heatmap.R: Script for generating correlation heatmaps
 Figures generated from the data using the provided scripts
 
 **Pipeline**  
-viral_detection_workflow.sh： Pipeline for generating soil viral communities and identifying AMGs  
-MAG_workflow.sh： Pipeline for generating dereplicated MAGs  
+viral_detection_workflow.sh: Pipeline for generating soil viral communities and identifying AMGs  
+MAG_workflow.sh: Pipeline for generating dereplicated MAGs  
 host_prediction.sh: Pipeline for virus host prediction
 
 DOI：  
