@@ -11,7 +11,7 @@ dput(state.clean)
 
 rhizo.spearman.clean<-cor(state.clean,use = "complete.obs",method = "spearman")
 res5 <- cor.mtest(state.clean, conf.level = .95,  method = "spearman") 
-genes_v <- c("UGDH", "galE", "K16150", "wbbL")
+genes_v <- c("UGDH", "galE", "K16150")
 genes_b <- c("rifA", "rifB", "rifC_D", "rifL", "rifN")
 
 corr_sub <- rhizo.spearman.clean[genes_v, genes_b]
@@ -19,7 +19,7 @@ p_sub    <- res5$p[genes_v, genes_b]
 
 
 #figure output
-pdf("Figure/vb_gene_corr_result.pdf", width = 500/80, height = 350/80)
+pdf("Results/vb_gene_corr_result.pdf", width = 500/80, height = 350/80)
 
 corrplot(
   corr = corr_sub,
@@ -47,4 +47,4 @@ corr_df$spearman.p <- as.vector(p_sub)
 # rename
 colnames(corr_df) <- c("virus.gene", "bacteria.gene", "spearman.r", "spearman.p")
 
-#write.table( corr_df,file = "rhizo.spearman.r.txt", sep = "\t", row.names = FALSE, quote = FALSE)
+#write.table( corr_df,file = "Results/rhizo.spearman.r.txt", sep = "\t", row.names = FALSE, quote = FALSE)
