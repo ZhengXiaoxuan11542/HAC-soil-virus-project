@@ -22,6 +22,6 @@ MAG_workflow.sh: Pipeline for generating dereplicated MAGs
 host_prediction.sh: Pipeline for virus host prediction
 
 DOI：  
-NCBI SRA:    
-Dereplicated vOTU database:   
-All data used for figure visualization: Figshare...
+NCBI SRA: accession nr. to be added after review
+Dereplicated vOTU database: accession nr. to be added after review
+All data used for figure visualization: accession nr. to be added after review
