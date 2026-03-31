@@ -1,4 +1,4 @@
-# HAC-feedback-project-2026
+# HAC-soil-virus-project
 
 **Srcipts of 'Stress-induced transgenerational plant defense by virus-mediated reprogramming of secondary metabolism in rhizosphere bacteria' in Hu lab**    
 
