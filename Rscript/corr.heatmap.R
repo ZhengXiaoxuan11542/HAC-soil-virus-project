@@ -19,7 +19,7 @@ p_sub    <- res5$p[genes_v, genes_b]
 
 
 #figure output
-pdf("Results/vb_gene_corr_result.pdf", width = 500/80, height = 350/80)
+pdf("Figure/vb_gene_corr_result.pdf", width = 500/80, height = 350/80)
 
 corrplot(
   corr = corr_sub,
@@ -47,4 +47,4 @@ corr_df$spearman.p <- as.vector(p_sub)
 # rename
 colnames(corr_df) <- c("virus.gene", "bacteria.gene", "spearman.r", "spearman.p")
 
-#write.table( corr_df,file = "Results/rhizo.spearman.r.txt", sep = "\t", row.names = FALSE, quote = FALSE)
+#write.table( corr_df,file = "Figure/rhizo.spearman.r.txt", sep = "\t", row.names = FALSE, quote = FALSE)
