@@ -1,6 +1,6 @@
 # HAC-feedback-project-2026
 
-**Srcipts of 'Soil bacterial phages drive volatile-mediated plant–soil feedbacks' in Hu lab**    
+**Srcipts of 'Stress-induced transgenerational plant defense by virus-mediated reprogramming of secondary metabolism in rhizosphere bacteria' in Hu lab**    
 
 Data Analysis Scripts for Microbial Diversity and Correlation
 
