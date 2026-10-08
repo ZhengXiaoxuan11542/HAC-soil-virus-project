@@ -11,7 +11,7 @@ dput(state.clean)
 
 rhizo.spearman.clean<-cor(state.clean,use = "complete.obs",method = "spearman")
 res5 <- cor.mtest(state.clean, conf.level = .95,  method = "spearman") 
-genes_v <- c("UGDH", "galE", "K16150")
+genes_v <- c("vUGDH", "vgalE", "vGT")
 genes_b <- c("rifA", "rifB", "rifC_D", "rifL", "rifN")
 
 corr_sub <- rhizo.spearman.clean[genes_v, genes_b]
