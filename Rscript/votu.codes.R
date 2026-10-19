@@ -91,17 +91,17 @@ pairwise.adonis <-function(x,factors, sim.method, p.adjust.m)
 by.dist<-vegdist(d_norm,method = 'bray')
 by.dist = as.data.frame(as.matrix(by.dist)) # output the bray matrix
 #write.csv(by.dist,file = "v_pcoa_bc_matrix.csv",quote = F)
+pcoa_by <- vegan::wcmdscale(as.dist(by.dist), k = 2, eig = TRUE, add = FALSE)
+pcoa_by_eig <- pcoa_by$eig[1:2] / sum(pcoa_by$eig[pcoa_by$eig > max(abs(pcoa_by$eig)) * 1e-10])
+pcoa_by_data <- data.frame(pcoa_by$points)
 
-pcoa_by<-dudi.coa(by.dist,scan = FALSE, nf = 10)
-pcoa_by_eig<-(pcoa_by$eig)[1:10] / sum(pcoa_by$eig)
-pcoa_by_data<-data.frame(pcoa_by$li)
 names(pcoa_by_data)[1:2]<-c('PCoA1','PCoA2')
 pcoa_by_data$group = d $group
 view(pcoa_by_data) #to check
 adonis2(formula = d_norm ~ group, data = d, permutations = 999,method = "bray")
 pairwise.adonis(d_norm,  group$group, sim.method="bray", p.adjust.m= "fdr")
 pcoa<-ggplot(pcoa_by_data,aes(PCoA1, PCoA2,color = group))+stat_ellipse(level = 0.8, show.legend = F) +
-  theme_bw() + labs(title = "Viral beta diversity", subtitle = "R2 = 0.398, P=0.001**")+
+  theme_bw() + labs(title = "Viral beta diversity", subtitle = "R2 = 0.398, P=0.001***")+
   geom_point(aes(color = group, shape = group), size =4, alpha = 0.8) + #可在这里修改点的透明度、大小
   scale_shape_manual(values = c(17,17,17)) +
   scale_color_manual(values = c("#c5ccae","#ffc97b", "#167eb2")) +
@@ -118,9 +118,10 @@ group.rhizo = group[c(7:18),]
 by.dist.rhizo<-vegdist(rhizo,method = 'bray')
 by.dist.rhizo = as.data.frame(as.matrix(by.dist.rhizo)) # output the bray matrix
 #write.csv(by.dist.rhizo,file = "v_rhizo_pcoa_bc_matrix.csv",quote = F)
-pcoa_by.rhizo<-dudi.coa(by.dist.rhizo,scan = FALSE, nf = 10)
-pcoa_by_eig.rhizo<-(pcoa_by.rhizo$eig)[1:10] / sum(pcoa_by.rhizo$eig)
-pcoa_by_data.rhizo<-data.frame(pcoa_by.rhizo$li)
+pcoa_by.rhizo <- vegan::wcmdscale(as.dist(by.dist.rhizo), k = 2, eig = TRUE, add = FALSE)
+pcoa_by_eig.rhizo <- pcoa_by.rhizo$eig[1:2] / sum(pcoa_by.rhizo$eig[pcoa_by.rhizo$eig > max(abs(pcoa_by.rhizo$eig)) * 1e-10])
+pcoa_by_data.rhizo <- data.frame(pcoa_by.rhizo$points)
+
 names(pcoa_by_data.rhizo)[1:2]<-c('PCoA1','PCoA2')
 pcoa_by_data.rhizo$group = group.rhizo $group
 #view(pcoa_by_data.rhizo) #to check
