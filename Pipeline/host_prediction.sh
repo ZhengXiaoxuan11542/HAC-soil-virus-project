@@ -4,7 +4,7 @@
 #PBS -o host.log
 #PBS -e host.err
 
-###########trna##############
+###########trna method##############
 mkdir ./07-hostpre/23redo-mag/trna/
 
 tRNAscan-SE -A -o  ./07-hostpre/23redo-mag/trna/trnascan-A \
@@ -35,7 +35,7 @@ makeblastdb -in ./07-hostpre/23redo-mag/trna/trnascan.fasta \
  #输出到一个文件中，以文件名（bin名）为第一列
  awk '{print FILENAME "\t" $0}' *_bin*.fa >> output_file.txt
 
-###########crispr###############
+###########crispr method###############
 ####cctyper以识别crispr
 conda activate cctyper
  for i in $(ls ./10.bin/mag_50_10_drep/dereplicated_genomes/*.fa); 
@@ -56,7 +56,7 @@ spacepharer createsetdb ./03-vdetection/4.vibrant_redo/votu/virusdir/*.fasta  ./
  spacepharer easy-predict ${i}  ./07-hostpre/23redo-mag/crispr/pharer/targetSetDB ./07-hostpre/23redo-mag/crispr/result/results_${base_name}.tsv ./07-hostpre/23redo-mag/crispr/pharer/tmpFolder; done
 
 
-################blastn##############
+################blastn method##############
   for i in $(ls ./10.bin/mag_50_10_drep/dereplicated_genomes/*.fa); 
   do base_name=$(basename ${i})
   blastn -db ./03-vdetection/4.vibrant_redo/votu/votu_db -query ${i} -out ./07-hostpre/23redo-mag/blastn/results_${base_name}.tsv -evalue 1e-3 -perc_identity 70 -outfmt "6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp"; done

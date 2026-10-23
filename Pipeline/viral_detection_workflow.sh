@@ -39,7 +39,7 @@ conda deactivate
 
 
 #4.dereplication
-cd-hit -i ./03-vdetection/4.vibrant_redo/vb-recheck/VIBRANT_final-viral-combined.rename/final-viral-combined.rename.phages_combined.fna \
+cd-hit-est -i ./03-vdetection/4.vibrant_redo/vb-recheck/VIBRANT_final-viral-combined.rename/final-viral-combined.rename.phages_combined.fna \
 -c 0.95 -aS 0.85 -T 20 -M 35000 \
 -o ./03-vdetection/4.vibrant_redo/votu/votu.fa
 

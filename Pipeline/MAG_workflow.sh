@@ -1,9 +1,11 @@
+
 #PBS -N mag
 #PBS -l nodes=1:ppn=60 
 #PBS -l walltime=999:00:00
 #PBS -o mag.log
 #PBS -e mag.err
 
+#Take control soil data as an example.
 #1.binning
 conda activate metawrap-env
 metawrap binning \
